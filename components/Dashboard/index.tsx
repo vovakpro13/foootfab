@@ -26,7 +26,10 @@ const Dashboard: React.FC = () => {
   const filteredProducts = Products.filter(
     (product) =>
       (brand === Brand.All || product.brand === brand) &&
-      (price === Price.All || +product.price >= +price) &&
+      (price === Price.All ||
+        (product.discount
+          ? +(+product.price * (1 - product.discount / 100)).toFixed(0)
+          : +product.price) >= +price) &&
       (size === Size.All || product.sizes.includes(size)) &&
       (type === SType.All || product.type === type) &&
       (!search || product.title.toLowerCase().includes(search.toLowerCase()))
@@ -45,7 +48,7 @@ const Dashboard: React.FC = () => {
         setType={setType}
       />
 
-      <div className="w-full flex flex-col md:flex-row gap-10 p-4 ">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap gap-10 p-4 ">
         {filteredProducts.map((product: Product) => (
           // @ts-ignore
           <Card key={product.code.toString()} {...product} />

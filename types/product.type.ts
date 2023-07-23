@@ -10,4 +10,5 @@ export type Product = {
 
   brand: Brand;
   type: SType;
+  discount?: number;
 };

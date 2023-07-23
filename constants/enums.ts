@@ -2,13 +2,19 @@ enum Brand {
   All = "Всі",
   Dior = "Dior",
   Gucci = "Gucci",
+  Adidas = "Adidas",
   LouisVuitton = "Louis Vuitton",
+  NewBalance = "New Balance",
+  Vans = "Vans",
+  Converse = "Converse",
 }
 
 enum SType {
   All = "Всі",
   Slippers = "Шльопанці",
   Sneakers = "Кросівки",
+  Sandals = "Сандалі",
+  Slides = "Слайди",
 }
 
 enum Price {
