@@ -6,10 +6,9 @@ import { Product } from "@/types/product.type";
 import { useEffect, useState } from "react";
 import { Brand, Price, Size, SType } from "@/constants/enums";
 import { Products } from "@/constants/products";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const Dashboard: React.FC = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const [brand, setBrand] = useState<Brand>(Brand.All);
@@ -18,9 +17,11 @@ const Dashboard: React.FC = () => {
   const [type, setType] = useState<SType>(SType.All);
   const [search, setSearch] = useState<string>("");
 
+  const searchp = searchParams.get("search");
+
   useEffect(() => {
     setSearch((searchParams.get("search") as string) || "");
-  }, [searchParams.get("search")]);
+  }, [searchParams, searchp]);
 
   const filteredProducts = Products.filter(
     (product) =>
@@ -46,7 +47,8 @@ const Dashboard: React.FC = () => {
 
       <div className="w-full flex flex-col md:flex-row gap-10 p-4 ">
         {filteredProducts.map((product: Product) => (
-          <Card key={product.code} {...product} />
+          // @ts-ignore
+          <Card key={product.code.toString()} {...product} />
         ))}
       </div>
     </div>
