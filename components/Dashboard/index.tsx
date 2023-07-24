@@ -36,7 +36,7 @@ const Dashboard: React.FC = () => {
   );
 
   return (
-    <div className="container flex flex-col md:flex-row mx-auto p-4 gap-4">
+    <div className="container flex flex-col md:flex-row mx-auto py-4 gap-4">
       <Filters
         brand={brand}
         setBrand={setBrand}
@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
         setType={setType}
       />
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap gap-10 p-4 ">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap gap-10 py-4 md:p-4">
         {filteredProducts.map((product: Product) => (
           // @ts-ignore
           <Card key={product.code.toString()} {...product} />

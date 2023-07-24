@@ -41,10 +41,10 @@ const ProductCard: React.FC<IProductCardProps> = ({
 
   return (
     <>
-      <div className="flex-1 flex-grow basis-1 md:basis-1/2 lg:basis-1/3   flex flex-col bg-white shadow-lg rounded-lg">
-        <div className="h-64 w-full overflow-hidden rounded-t-lg  mb-4 cursor-pointer">
+      <div className="flex-1 flex-grow basis-1 md:basis-1/2 lg:basis-1/3   flex flex-col bg-white md:shadow-lg border-b-2 border-gray-200 pb-2 md:rounded-lg">
+        <div className="h-64 w-full overflow-hidden md:rounded-t-lg  mb-4 cursor-pointer">
           <div
-            className="w-full h-full bg-orange-300 relative cursor-pointerrounded-t-lg hover:scale-125 overflow-hidden transition"
+            className="w-full h-full bg-orange-300 relative cursor-pointer md:rounded-t-lg hover:scale-125 overflow-hidden transition"
             style={{
               backgroundImage: `url(/${code}/${activeImage})`,
               backgroundSize: "cover",
